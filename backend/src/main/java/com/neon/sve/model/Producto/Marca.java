@@ -3,6 +3,8 @@ package com.neon.sve.model.Producto;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.neon.sve.dto.marca.DatosActualizarMarca;
+import com.neon.sve.dto.marca.DatosRegistroMarca;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -35,4 +38,13 @@ public class Marca {
     @JsonIgnore
     @OneToMany(mappedBy = "id_marca")
     private List<Producto> productos;
+
+    public Marca(@Valid DatosRegistroMarca datosRegistroMarca){
+        this.nombre_marca = datosRegistroMarca.nombre_marca();
+    }
+
+    public void Actualizar(@Valid DatosActualizarMarca datosActualizarMarca){
+        this.nombre_marca = datosActualizarMarca.nombre_marca();
+    }
+
 }
