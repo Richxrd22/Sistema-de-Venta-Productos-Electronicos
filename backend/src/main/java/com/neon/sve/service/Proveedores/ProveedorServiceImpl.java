@@ -89,7 +89,7 @@ public class ProveedorServiceImpl implements ProveedoreService{
         Proveedor proveedor = proveedorRepository.findById(id_proveedor)
         .orElseThrow(()-> new EntityNotFoundException("Proveedor no encontrado con ID:" + id_proveedor));
 
-        if (!proveedor.getActivo()) {
+        if (proveedor.getActivo()) {
             proveedor.setActivo(false);
             proveedorRepository.save(proveedor);
 

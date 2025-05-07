@@ -43,7 +43,7 @@ public class SecurityConfig {
                                         config.setAllowedOrigins(List.of("http://localhost:5174")); // Reemplaza con el
                                                                                                     // origen de tu
                                                                                                     // frontend
-                                        config.setAllowedMethods(List.of("GET", "PUT", "DELETE"));
+                                        config.setAllowedMethods(List.of("GET", "POST","PUT", "DELETE"));
                                         config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
                                         config.setAllowCredentials(true);
                                         return config;
